@@ -61,3 +61,30 @@ Go to terminal and run command:
 ```
 $HBASE_HOME/bin/start-hbase.sh
 ```
+
+Error 3: /opt/hbase/bin/hbase-daemon.sh: line 208: /opt/hbase/logs/hbase-mj9vc-master-cs6304-mj9vc-01.out: Permission denied
+head: cannot open '/opt/hbase/logs/hbase-mj9vc-master-cs6304-mj9vc-01.out' for reading: No such file or directory
+
+
+Fix 1:
+```
+sudo chown -R <username>:ubuntu /opt/hbase/logs
+sudo chmod 755 /opt/hbase/logs
+$HBASE_HOME/bin/start-hbase.sh
+jps
+```
+Fix 2:
+
+If you do not want to change anything under /opt, an alternative is to use a writable log directory in your home:
+```
+mkdir -p ~/hbase-logs
+export HBASE_LOG_DIR=$HOME/hbase-logs
+
+$HBASE_HOME/bin/start-hbase.sh
+```
+
+To make that permanent, add this to:
+```
+$HBASE_HOME/conf/hbase-env.sh
+export HBASE_LOG_DIR=/home/<username>/hbase-logs
+```
