@@ -25,6 +25,7 @@ Your $HBASE_HOME is /opt/hbase.
 ### How to run
 Follow Commands.txt to run on terminal.
 Java codes will run on eclipse directly after referencing HBase libraries.
+To run InsertMoviesBatch.java you could download the movie file from  https://snap.stanford.edu/data/web-Movies.html
 
 ### Stop HBase
 Stop the service when required using below command
