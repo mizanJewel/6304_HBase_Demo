@@ -54,7 +54,7 @@ public class InsertMoviesBatch extends Configured implements Tool {
                     .writeBufferSize(10 * 1024 * 1024); // 10MB per batch client buffer
 
             try (BufferedMutator mutator = connection.getBufferedMutator(params);
-                 BufferedReader br = new BufferedReader(new FileReader("/home/mrpk9/Desktop/movies.txt"))) {
+                 BufferedReader br = new BufferedReader(new FileReader("/home/<username>/Desktop/movies.txt"))) {
 
                 String line;
                 int totalRows = 0;
